@@ -110,13 +110,16 @@ for entry in data:
     for word, _ in occurrences:
         mutations = generate_password_mutations(word)
 
+        # Dodajemy dodatkową mutację z połączeniem loginu i słowa
+        login_word_mutation = entry['login'] + word
+        mutations.append(login_word_mutation)
+
         # Dodanie loginu oraz mutacji do listy
         for mutation in mutations:
             entry_copy = entry.copy()
             entry_copy["password"] = mutation
             entry_copy["password_hash"] = generate_password_hash(mutation)
             output_data.append(entry_copy)
-
 
 # Zapisanie danych do pliku JSON w bieżącym katalogu
 save_to_json(output_data, 'output_data.json')
