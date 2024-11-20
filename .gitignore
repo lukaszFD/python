@@ -1,3 +1,4 @@
+.idea/
 /venv/
 /password_cracking/matched_data.json
 /password_cracking/output_data.json

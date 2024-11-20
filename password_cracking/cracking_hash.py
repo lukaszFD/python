@@ -50,7 +50,7 @@ def generate_password_mutations(word):
     mutations.append(mixed_case)
 
     # Dodawanie zakończeń do słowa
-    endings = ["123", "01", "99", "999", "!", "!!!", "@2023", "2023", "_", "*"]
+    endings = ["123", "01", "99", "999", "!", "!!!", "@2023", "2023", "2024", "2025", "_", "*"]
     for ending in endings:
         mutations.append(word + ending)
 
