@@ -10,7 +10,7 @@ def packet_callback(packet):
         ip_dst = packet["IP"].dst  # Adres docelowy
 
         # Filtruj pakiety według interesujących adresów IP
-        if ip_src in {"192.168.1.35", "192.168.1.42"} or ip_dst in {"192.168.1.35", "192.168.1.42"}:
+        if ip_src in {"192.168.1.00", "192.168.1.00"} or ip_dst in {"192.168.1.00", "192.168.1.00"}:
             print(f"Packet: {ip_src} -> {ip_dst}, Protocol: {packet['IP'].proto}, Size: {len(packet)} bytes")
 
 
