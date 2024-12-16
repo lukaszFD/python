@@ -13,12 +13,11 @@ db = SQLAlchemy(app)
 
 # Logging configuration
 logging.basicConfig(
-    filename='app.log',  # File to store logs
-    level=logging.INFO,  # Logging level
-    format='%(asctime)s [%(levelname)s] %(message)s',  # Format for log entries
+    filename='https_api.log',
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
-
 logger = logging.getLogger()
 
 # Database model
@@ -27,7 +26,6 @@ class User(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
 
-# Initialize the database
 with app.app_context():
     db.create_all()
 
@@ -47,7 +45,6 @@ def basic_auth_required(f):
         return f(*args, **kwargs)
     return decorated
 
-# GET endpoint to fetch all users
 @app.route('/users', methods=['GET'])
 @basic_auth_required
 def get_users():
@@ -56,7 +53,6 @@ def get_users():
     logger.info("Fetched all users.")
     return jsonify({"users": users_list}), 200
 
-# POST endpoint to add a new user
 @app.route('/users', methods=['POST'])
 @basic_auth_required
 def add_user():
@@ -65,7 +61,6 @@ def add_user():
         logger.error(f"Invalid data provided for user creation: {data}")
         return jsonify({"message": "Invalid data. 'name' and 'email' are required."}), 400
 
-    # Create a new user
     new_user = User(name=data['name'], email=data['email'])
     try:
         db.session.add(new_user)
@@ -77,12 +72,12 @@ def add_user():
         logger.error(f"Error adding user: {e}")
         return jsonify({"message": "Error adding user.", "error": str(e)}), 500
 
-# Handle disallowed methods for /users
 @app.route('/users', methods=['PUT', 'DELETE', 'PATCH', 'OPTIONS'])
 def method_not_allowed_users():
     logger.warning(f"Method not allowed: {request.method} {request.path}")
     return jsonify({"message": "Method not allowed"}), 405
 
+# Run HTTPS server
 if __name__ == '__main__':
-    logger.info("Starting Flask application...")
-    app.run(debug=True)
+    logger.info("Starting HTTPS server...")
+    app.run(host='0.0.0.0', port=443, ssl_context=(r'cert.pem', r'key.pem'), debug=True)

@@ -6,3 +6,5 @@
 /pdf/.idea/
 /image_reader/.idea/
 /readme_conversion/.idea
+*key.pem
+*cert.pem
