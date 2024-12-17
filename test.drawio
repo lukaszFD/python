@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Enhanced Data Flow" id="enhanced1">
+    <mxGraphModel dx="1200" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Data Sources -->
+        <mxCell id="swagger" value="Swagger UI" style="shape=ellipse;fillColor=#CDEB8B;strokeColor=#82B366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="files" value="Test Files (CSV, TXT, XLSX)" style="shape=rectangle;fillColor=#F8CECC;strokeColor=#B85450;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="150" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uat" value="UAT Environment (Test Data)" style="shape=rectangle;fillColor=#FFF2CC;strokeColor=#D6B656;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="250" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GENIE Framework -->
+        <mxCell id="genie" value="GENIE Framework" style="rounded=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="150" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Feature Files -->
+        <mxCell id="feature_snow" value="SNOW.feature (13 endpoints)" style="shape=rectangle;fillColor=#D5E8D4;strokeColor=#82B366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="50" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="feature_vault" value="Vault.feature (5 endpoints)" style="shape=rectangle;fillColor=#D5E8D4;strokeColor=#82B366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="150" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="feature_files" value="Files.feature (CSV, TXT, XLSX)" style="shape=rectangle;fillColor=#D5E8D4;strokeColor=#82B366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="250" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Azure DevOps -->
+        <mxCell id="devops" value="Azure DevOps Pipeline" style="rounded=1;fillColor=#E1D5E7;strokeColor=#9673A6;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="150" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- HTML Report -->
+        <mxCell id="report" value="GENIE HTML Report" style="shape=cylinder;fillColor=#FFE6CC;strokeColor=#D79B00;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="150" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="arrow_swagger" style="edgeStyle=elbowEdgeStyle;endArrow=blockThin;strokeColor=#000000;" edge="1" parent="1" source="swagger" target="genie">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_files" style="edgeStyle=elbowEdgeStyle;endArrow=blockThin;strokeColor=#000000;" edge="1" parent="1" source="files" target="genie">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_feature" style="edgeStyle=elbowEdgeStyle;endArrow=blockThin;strokeColor=#000000;" edge="1" parent="1" source="genie" target="devops">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_devops" style="edgeStyle=elbowEdgeStyle;endArrow=blockThin;strokeColor=#000000;" edge="1" parent="1" source="devops" target="report">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
