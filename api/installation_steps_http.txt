@@ -1,0 +1,26 @@
+sudo nano /etc/systemd/system/my_flask_api.service
+
+
+
+[Unit]
+Description=My Flask API Service
+
+[Service]
+ExecStart=/usr/bin/python3 /home/kali/test_api/Py_80/http_api.py
+WorkingDirectory=/home/kali/test_api/Py_80
+User=kali
+Group=kali
+Restart=always
+Access=Internet
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl enable my_flask_api
+
+
+sudo systemctl start my_flask_api
+
+
+sudo systemctl status my_flask_api

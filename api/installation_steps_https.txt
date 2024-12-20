@@ -1,0 +1,38 @@
+sudo nano /etc/systemd/system/my_https_flask_api.service
+
+
+[Unit]
+Description=Flask HTTPS API
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/kali/test_api/Py_443/https_api.py
+WorkingDirectory=/home/kali/test_api/Py_443
+Environment="PYTHONPATH=/home/kali/test_api/Py_443"
+SSLContext=/home/kali/test_api/Py_443/cert.pem:/home/kali/test_api/Py_443/key.pem
+StandardOutput=journal
+StandardError=journal
+Restart=always
+User=kali
+Group=kali
+
+[Install]
+WantedBy=multi-user.target
+
+
+cd /home/kali/test_api/Py_443
+
+sudo chmod 600 cert.pem key.pem
+
+sudo chmod 600 cert.pem key.pem
+
+sudo openssl x509 -in cert.pem -text -noout
+sudo openssl rsa -in key.pem -check
+
+sudo chmod 644 /etc/systemd/system/my_https_flask_api.service
+
+sudo systemctl start my_https_flask_api.service
+
+sudo systemctl status my_https_flask_api.service
+
+sudo systemctl enable my_https_flask_api.service
