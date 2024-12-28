@@ -10,13 +10,13 @@ def packet_callback(packet):
         ip_dst = packet["IP"].dst  # Adres docelowy
 
         # Filtruj pakiety według interesujących adresów IP
-        if ip_src in {"192.168.1.00", "192.168.1.00"} or ip_dst in {"192.168.1.00", "192.168.1.00"}:
+        if ip_src in {"192.168.56.101", "192.168.56.1"} or ip_dst in {"192.168.56.101", "192.168.56.1"}:
             print(f"Packet: {ip_src} -> {ip_dst}, Protocol: {packet['IP'].proto}, Size: {len(packet)} bytes")
 
 
 if __name__ == "__main__":
     # Interfejs sieciowy do monitorowania (zmień w razie potrzeby)
-    interface = 'WiFi'
+    interface = 'Ethernet 3'
 
     print("Starting packet capture... Press Ctrl+C to stop.")
 
