@@ -1,5 +1,5 @@
+# Create a systemd service file for your Flask HTTPS API
 sudo nano /etc/systemd/system/my_https_flask_api.service
-
 
 [Unit]
 Description=Flask HTTPS API
@@ -19,20 +19,19 @@ Group=kali
 [Install]
 WantedBy=multi-user.target
 
-
+# Set permissions for SSL certificates
 cd /home/kali/test_api/Py_443
-
 sudo chmod 600 cert.pem key.pem
 
-sudo chmod 600 cert.pem key.pem
-
+# Test the certificate and key files
 sudo openssl x509 -in cert.pem -text -noout
 sudo openssl rsa -in key.pem -check
 
+# Adjust the service file permissions
 sudo chmod 644 /etc/systemd/system/my_https_flask_api.service
 
+# Enable and start the service
 sudo systemctl start my_https_flask_api.service
-
 sudo systemctl status my_https_flask_api.service
-
 sudo systemctl enable my_https_flask_api.service
+				

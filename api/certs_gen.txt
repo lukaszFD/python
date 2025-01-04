@@ -1,1 +1,14 @@
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
+# Description of the command:
+#
+# The following command generates a self-signed SSL certificate using OpenSSL:
+#
+# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
+#
+# Breakdown of the command:
+# - `req`: Initiates a certificate request.
+# - `-x509`: Specifies that the output should be a self-signed certificate.
+# - `-nodes`: Tells OpenSSL not to encrypt the private key.
+# - `-days 365`: Sets the validity period of the certificate to 365 days.
+# - `-newkey rsa:2048`: Generates a new RSA private key with a size of 2048 bits.
+# - `-keyout key.pem`: Specifies the output file for the private key.
+# - `-out cert.pem`: Specifies the output file for the certificate.

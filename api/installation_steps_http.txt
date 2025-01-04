@@ -1,6 +1,5 @@
+# Create a systemd service file for your Flask API
 sudo nano /etc/systemd/system/my_flask_api.service
-
-
 
 [Unit]
 Description=My Flask API Service
@@ -16,11 +15,9 @@ Access=Internet
 [Install]
 WantedBy=multi-user.target
 
-
+# Enable and start the service
 sudo systemctl enable my_flask_api
-
-
 sudo systemctl start my_flask_api
 
-
+# Check the status of the service
 sudo systemctl status my_flask_api
