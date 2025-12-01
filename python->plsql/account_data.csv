@@ -1,0 +1,6 @@
+AccountID,Username,CreationDate,IsActive,AccessLevel,Description
+1001,jkowalski,2023-01-15,YES,STANDARD,"USR:A123/HIGH - Senior Developer Account"
+1002,anowak,2023-02-20,NO,BASIC,"ADM:B456/LOW - Temporary HR Access"
+1003,pmazurek,2024-05-10,YES,STANDARD,"MGR:C789/MEDIUM - Project Lead"
+1004,zlis,2024-06-01,YES,ADMIN,"ADM:D012/CRITICAL - Database Administrator"
+1005,mkruk,2024-07-20,NO,BASIC,"USR:E345/LOW - Intern Account"
