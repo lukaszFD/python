@@ -66,7 +66,7 @@ def generate_self_signed_cert(service_name: str, domain_suffix: str, output_path
 if __name__ == "__main__":
     # Your services list from Ansible vars
     services = [
-        {"name": "open_webui", "port": 8080, "internal_host": "open-webui"}
+        {"name": "codex_news", "port": 8080, "internal_host": "codex-news-ui"}
     ]
 
     # Configuration for the run

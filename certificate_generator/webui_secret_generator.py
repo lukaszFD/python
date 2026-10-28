@@ -24,9 +24,9 @@ def generate_webui_secret_key(key_bytes: int, var_name: str, output_file: str):
 
 if __name__ == "__main__":
     # Settings for your project
-    KEY_BYTES = 32                                    # 32 bytes = 64 hex chars, matches `openssl rand -hex 32`
-    VAR_NAME = "vault_webui_secret_key"
-    OUTPUT_YAML = "group_vars/all/vault_webui_secret.yml"
+    KEY_BYTES = 20                                    # 32 bytes = 64 hex chars, matches `openssl rand -hex 32`
+    VAR_NAME = "vault_news_editor_db_password"
+    OUTPUT_YAML = "group_vars/all/vault_news_editor_db_password.yml"
 
     # Create directory if it's missing (e.g. group_vars/all/)
     os.makedirs(os.path.dirname(OUTPUT_YAML), exist_ok=True)
